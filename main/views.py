@@ -1,19 +1,16 @@
-from django.shortcuts import render
 from django.contrib import messages
 from .models import (
-    UserProfile,
     Blog,
     Portfolio,
     Testimonial,
     Certificate
 )
-
 from django.views import generic
-
 from .forms import ContactForm
 
 
-class IndexView(generic.TemplateView):
+class MainPageView(generic.TemplateView):
+    """класс для главной страницы"""
     template_name = "main/index.html"
 
     def get_context_data(self, **kwargs):
@@ -32,6 +29,7 @@ class IndexView(generic.TemplateView):
 
 
 class ContactView(generic.FormView):
+    """класс для связи"""
     template_name = "main/contact.html"
     form_class = ContactForm
     success_url = "/"
@@ -43,6 +41,7 @@ class ContactView(generic.FormView):
 
 
 class PortfolioView(generic.ListView):
+    """ класс для отображения списка портфолио"""
     model = Portfolio
     template_name = "main/portfolio.html"
     paginate_by = 10
@@ -52,11 +51,13 @@ class PortfolioView(generic.ListView):
 
 
 class PortfolioDetailView(generic.DetailView):
+    """ класс для отображения портфолио"""
     model = Portfolio
     template_name = "main/portfolio-detail.html"
 
 
 class BlogView(generic.ListView):
+    """ класс для списка постов"""
     model = Blog
     template_name = "main/blog.html"
     paginate_by = 10
@@ -66,5 +67,6 @@ class BlogView(generic.ListView):
 
 
 class BlogDetailView(generic.DetailView):
+    """ класс для отображения поста"""
     model = Blog
     template_name = "main/blog-detail.html"

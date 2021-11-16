@@ -101,6 +101,9 @@ class Portfolio(models.Model):
             self.slug = slugify(self.name)
         super(Portfolio, self).save(*args, **kwargs)
 
+    def total_likes(self):
+        return self.likes.count()
+
     def __str__(self):
         return self.name
 
@@ -148,3 +151,5 @@ class Certificate(models.Model):
 
     def __str__(self):
         return self.name
+
+
