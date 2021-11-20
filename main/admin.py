@@ -34,11 +34,6 @@ class BlogAdmin(admin.ModelAdmin):
     readonly_fields = ('slug',)
 
 
-@admin.register(Certificate)
-class CertificateAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name')
-
-
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'score')

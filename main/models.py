@@ -138,18 +138,3 @@ class Blog(models.Model):
         return f"/blog/{self.slug}"
 
 
-class Certificate(models.Model):
-    date = models.DateTimeField(blank=True, null=True)
-    name = models.CharField(max_length=200, blank=True, null=True)
-    title = models.CharField(max_length=200, blank=True, null=True)
-    description = models.CharField(max_length=200, blank=True, null=True)
-    is_active = models.BooleanField(default=True)
-
-    class Meta:
-        verbose_name_plural = 'Certificates'
-        verbose_name = 'Certificate'
-
-    def __str__(self):
-        return self.name
-
-
